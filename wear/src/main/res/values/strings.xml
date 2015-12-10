@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PaperCraft</string>
+    <string name="long_press_intro">Tap and hold with 2 fingers to quit…</string>
+    <string name="shared_prefs_name">PAPERCRAFT_SHARED_PREFS</string>
+    <string name="credits">Thanks for playing!\n\nMade by\n\nMatt\nJeff\nJJ\n\nat Cord Project Inc.</string>
+    <string name="stats_text">Score: %1$s\nKills: %2$d\nDeaths: %3$d\nMax Combo: %4$d\nEscaped Enemies: %5$d</string>
+
+</resources>

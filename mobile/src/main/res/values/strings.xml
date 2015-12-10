@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PaperCraft</string>
+    <string name="action_settings">Settings</string>
+    <string name="oauth_client_id">267789682116-o1tuktvh1ppvkkn3b5r22ft43kc026di.apps.googleusercontent.com</string>
+    <string name="gpgs_leaderboard_id">CgkIxIuJzOUHEAIQBA</string>
+    <string name="signin_other_error">Sign in error…</string>
+    <string name="leaderboards_not_available">Could not connect to Play Game Services, Leaderboards unavailable…</string>
+    <string name="achievements_not_available">Could not connect to Play Game Services, Achievements unavailable…</string>
+    <string name="app_id">267789682116</string>
+    <string name="high_score_text">Your High Score\n%s</string>
+</resources>

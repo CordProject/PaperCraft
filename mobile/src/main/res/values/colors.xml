@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_color">#ff252525</color>
+    <color name="scrolling_section_color_1">#373737</color>
+    <color name="scrolling_section_color_2">#474747</color>
+    <color name="background_color_dark">#212121</color>
+    <color name="shadow_color">#88252525</color>
+    <color name="colorPrimary">@color/background_color</color>
+    <color name="colorPrimaryDark">@color/background_color_dark</color>
+    <color name="colorAccent">@color/scrolling_section_color_2</color>
+    <color name="lightest_grey">#88e1e1e1</color>
+</resources>

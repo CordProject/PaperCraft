@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dp_size">1dp</dimen>
+    <dimen name="ship_height">16dp</dimen>
+    <dimen name="ship_length">18dp</dimen>
+    <dimen name="enemy_radius">8dp</dimen>
+    <dimen name="bullet_length">4dp</dimen>
+    <dimen name="life_bitmap_width">8dp</dimen>
+    <dimen name="text_size">12sp</dimen>
+    <dimen name="title_size">20sp</dimen>
+    <dimen name="high_score_size">16sp</dimen>
+    <dimen name="booster_length">8dp</dimen>
+    <dimen name="booster_height">6dp</dimen>
+    <dimen name="booster_horizontal_range">1dp</dimen>
+    <dimen name="booster_horizontal_range_maneuver">6dp</dimen>
+    <dimen name="booster_vertical_range">1dp</dimen>
+    <dimen name="completion_circle_diameter">24dp</dimen>
+    <dimen name="text_shadow_radius">4sp</dimen>
+    <dimen name="text_shadow_offset">2sp</dimen>
+
+</resources>
