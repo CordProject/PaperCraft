@@ -25,6 +25,6 @@ The [Canvas API](http://developer.android.com/reference/android/graphics/Canvas.
   those strings with your own Google Play Games project ID, leaderboard IDs, and achievement IDs*.
 
 **shared**
-- This is a library that is shared between the mobile and the wear modules. 
+- A utility library that is shared between the mobile and the wear modules. 
 - It is mostly responsible for tracking 
   achievements and generating papery bitmap elements. 
