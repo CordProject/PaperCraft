@@ -116,9 +116,16 @@ public class MainPhoneActivity extends AppCompatActivity implements
     protected void onStart() {
         super.onStart();
         SharedPreferences prefs = getSharedPreferences(SharedConstants.PREFS_NAME, Context.MODE_PRIVATE);
-        boolean didSignOut = prefs.getBoolean(SharedConstants.KEY_GPG_SIGNED_OUT, false);
-        if (!didSignOut) {
-            mGoogleApiClient.connect();
+
+        String appId = getResources().getString(R.string.app_id);
+        if (appId.equals("yourAppId")) {
+            Toast.makeText(this, "Please replace the app_id value inside strings.xml with your Google Play Games app ID.", Toast.LENGTH_LONG).show();
+            Log.e("PaperCraft", "Please replace the app_id value inside strings.xml with your Google Play Games app ID.");
+        } else {
+            boolean didSignOut = prefs.getBoolean(SharedConstants.KEY_GPG_SIGNED_OUT, false);
+            if (!didSignOut) {
+                mGoogleApiClient.connect();
+            }
         }
     }
 
@@ -211,15 +218,28 @@ public class MainPhoneActivity extends AppCompatActivity implements
 
     public void updateAchievements() {
 
+        String leaderboardId = getResources().getString(R.string.gpgs_leaderboard_id);
+        if (leaderboardId.equals("yourLeaderboardId")) {
+            Toast.makeText(this, "Please replace the leaderboard_id value in strings.xml with your Google Play Games Leaderboard ID.", Toast.LENGTH_LONG).show();
+            Log.e("PaperCraft", "Please replace the leaderboard_id value in strings.xml with your Google Play Games Leaderboard ID.");
+            return;
+        }
+
         Games.Leaderboards.submitScore(mGoogleApiClient,
-                getResources().getString(R.string.gpgs_leaderboard_id),
+                leaderboardId,
                 systemController.getCurrentHighScore());
 
         for (final AchievementData data : outgoingAchievementData) {
             switch (data.type) {
                 case SharedConstants.TYPE_INCREMENTAL:
                     if (data.getStatus() < SharedConstants.SENT_TO_SERVER) {
-                        Games.Achievements.setStepsImmediate(mGoogleApiClient, getResources().getString(data.achievementResId), data.getValue())
+                        String achievementId = getResources().getString(data.achievementResId);
+                        if (achievementId.equals("yourAchievementId")) {
+                            Toast.makeText(this, "Please replace all ach_id_* values in strings.xml with your Google Play Games Achievement IDs.", Toast.LENGTH_LONG).show();
+                            Log.e("PaperCraft", "Please replace all ach_id_* values in strings.xml with your Google Play Games Achievement IDs.");
+                            return;
+                        }
+                        Games.Achievements.setStepsImmediate(mGoogleApiClient, achievementId, data.getValue())
                                 .setResultCallback(new ResultCallback<Achievements.UpdateAchievementResult>() {
                                     @Override
                                     public void onResult(Achievements.UpdateAchievementResult updateAchievementResult) {
@@ -238,6 +258,12 @@ public class MainPhoneActivity extends AppCompatActivity implements
                     break;
                 case SharedConstants.TYPE_SINGLE:
                     if (data.getStatus() < SharedConstants.SENT_TO_SERVER) {
+                        String achievementId = getResources().getString(data.achievementResId);
+                        if (achievementId.equals("yourAchievementId")) {
+                            Toast.makeText(this, "Please replace all ach_id_* values in strings.xml with your Google Play Games Achievement IDs.", Toast.LENGTH_LONG).show();
+                            Log.e("PaperCraft", "Please replace all ach_id_* values in strings.xml with your Google Play Games Achievement IDs.");
+                            return;
+                        }
                         Games.Achievements.unlockImmediate(mGoogleApiClient, getResources().getString(data.achievementResId))
                                 .setResultCallback(new ResultCallback<Achievements.UpdateAchievementResult>() {
                                     @Override

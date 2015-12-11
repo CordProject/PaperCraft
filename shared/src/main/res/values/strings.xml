@@ -15,18 +15,20 @@
     <string name="ach_cuatro">Cuatro</string>
     <string name="ach_pretty_awesome">Pretty Awesome Man</string>
 
-    <string name="ach_id_one_hundred">CgkIxIuJzOUHEAIQBg</string>
-    <string name="ach_id_one_thousand">CgkIxIuJzOUHEAIQBw</string>
-    <string name="ach_id_ten_thousand">CgkIxIuJzOUHEAIQCA</string>
-    <string name="ach_id_pacifist">CgkIxIuJzOUHEAIQCQ</string>
+    <!-- achievement ids from the Google Play Games Console can be placed
+         here for use with AchievementUtil -->
+    <string name="ach_id_one_hundred">yourAchievementId</string>
+    <string name="ach_id_one_thousand">yourAchievementId</string>
+    <string name="ach_id_ten_thousand">yourAchievementId</string>
+    <string name="ach_id_pacifist">yourAchievementId</string>
 
-    <string name="ach_id_back_stabber">CgkIxIuJzOUHEAIQCg</string>
-    <string name="ach_id_fin">CgkIxIuJzOUHEAIQCw</string>
-    <string name="ach_id_sitting_duck">CgkIxIuJzOUHEAIQDA</string>
-    <string name="ach_id_bad_pilot">CgkIxIuJzOUHEAIQDQ</string>
+    <string name="ach_id_back_stabber">yourAchievementId</string>
+    <string name="ach_id_fin">yourAchievementId</string>
+    <string name="ach_id_sitting_duck">yourAchievementId</string>
+    <string name="ach_id_bad_pilot">yourAchievementId</string>
 
-    <string name="ach_id_re_ocho">CgkIxIuJzOUHEAIQDg</string>
-    <string name="ach_id_ocho">CgkIxIuJzOUHEAIQEQ</string>
-    <string name="ach_id_cuatro">CgkIxIuJzOUHEAIQEA</string>
-    <string name="ach_id_pretty_awesome">CgkIxIuJzOUHEAIQDw</string>
+    <string name="ach_id_re_ocho">yourAchievementId</string>
+    <string name="ach_id_ocho">yourAchievementId</string>
+    <string name="ach_id_cuatro">yourAchievementId</string>
+    <string name="ach_id_pretty_awesome">yourAchievementId</string>
 </resources>
