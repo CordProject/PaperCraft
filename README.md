@@ -1,9 +1,6 @@
 # PaperCraft
 
-PaperCraft is a Material Design inspired space shooter for your Android Wear watch. 
-
-
-This is the public repository for [PaperCraft](https://play.google.com/store/apps/details?id=cordproject.lol.papercraft), now officially an Android Experiment :)
+This is the public repository for [PaperCraft](https://play.google.com/store/apps/details?id=cordproject.lol.papercraft), a Material Design inspired space shooter for your Android Wear watch. Now officially an Android Experiment :)
 
 ##Overview
 
