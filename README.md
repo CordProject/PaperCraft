@@ -1,4 +1,4 @@
-# PaperCraftPublic
+# PaperCraft
 
 So papery!
 
