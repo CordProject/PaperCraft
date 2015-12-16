@@ -69,9 +69,12 @@ public class MainPhoneView extends FrameLayout{
     private TextView highScoreTextView;
     private SystemControllerP systemController;
     protected DecimalFormat scoreFormatter = new DecimalFormat("#,###,###");
-
     private ValueAnimator buttonAnimator;
     private float translationPct = 0;
+
+    private Bitmap androidExperimentsWatermark;
+    private Paint watermarkPaint;
+
     private SystemControllerP.SystemControllerListenerP systemListener = new SystemControllerP.SystemControllerListenerP() {
         @Override
         public void onGameServicesConnectSuccess() {
@@ -214,6 +217,10 @@ public class MainPhoneView extends FrameLayout{
         if (didSignOut && !systemController.isGameServicesConnected()) {
             signInButton.setVisibility(View.VISIBLE);
         }
+
+        androidExperimentsWatermark = BitmapFactory.decodeResource(getResources(), R.mipmap.aex_watermark);
+        watermarkPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        watermarkPaint.setAlpha(0x7f);
     }
 
     @Override
@@ -412,6 +419,10 @@ public class MainPhoneView extends FrameLayout{
         int marginTop = (getHeight()/4 + titleIcon.getHeight());
         canvas.drawText(String.format("%s", getResources().getString(R.string.app_name)), getWidth() / 2,
                 marginTop, titlePaint);
+        int watermarkPadding = getWidth()/32;
+        canvas.drawBitmap(androidExperimentsWatermark, watermarkPadding,
+                getHeight() - androidExperimentsWatermark.getHeight() - watermarkPadding,
+                watermarkPaint);
     }
 
     @Override
