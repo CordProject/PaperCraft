@@ -1,10 +1,5 @@
 package cordproject.lol.papercraftshared.util;
 
-/**
- * Created by matthewlim on 11/13/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
 public class SharedConstants {
     public static final String PREFS_NAME = "prefs_name";
     public static final String KEY_HIGH_SCORE = "high_score";

@@ -11,11 +11,7 @@ import cordproject.lol.papercraftshared.entity.AchievementData;
 import cordproject.lol.papercraftshared.util.AchievementsUtil;
 import cordproject.lol.papercraftshared.util.SharedConstants;
 
-/**
- * Created by matthewlim on 11/11/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
+
 public class GameController extends Controller {
 
     public static final int L_0 = 0;

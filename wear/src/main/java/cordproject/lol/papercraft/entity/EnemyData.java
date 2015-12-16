@@ -1,10 +1,6 @@
 package cordproject.lol.papercraft.entity;
 
-/**
- * Created by matthewlim on 11/11/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
+
 public class EnemyData {
     public final static int FRONT = 0;
     public final static int BACK = 1;

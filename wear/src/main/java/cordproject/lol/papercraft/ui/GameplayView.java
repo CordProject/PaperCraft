@@ -18,11 +18,6 @@ import cordproject.lol.papercraft.R;
 import cordproject.lol.papercraft.entity.BulletData;
 import cordproject.lol.papercraft.entity.EnemyData;
 
-/**
- * Created by matthewlim on 10/8/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
 public class GameplayView extends MainView {
 
     private float screenRadius;

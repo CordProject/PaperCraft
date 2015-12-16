@@ -15,11 +15,6 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 
-/**
- * Created by matthewlim on 12/9/15.
- * papercraft
- * Copyright 2015 Cord Project Inc.
- */
 public class PaperGen {
 
 

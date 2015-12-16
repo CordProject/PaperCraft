@@ -7,11 +7,7 @@ import android.content.res.Resources;
 import cordproject.lol.papercraftshared.util.AchievementsUtil;
 import cordproject.lol.papercraftshared.util.SharedConstants;
 
-/**
- * Created by matthewlim on 11/16/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
+
 public class AchievementData {
 
     public int achievementResId;

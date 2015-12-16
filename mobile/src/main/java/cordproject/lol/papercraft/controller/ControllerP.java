@@ -2,11 +2,7 @@ package cordproject.lol.papercraft.controller;
 
 import java.util.ArrayList;
 
-/**
- * Created by matthewlim on 10/31/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
+
 public abstract class ControllerP {
 
     public static int SYSTEM_CONTROLLER = 0;

@@ -1,10 +1,6 @@
 package cordproject.lol.papercraft.util;
 
-/**
- * Created by Jeff Lee on 10/29/15.
- * cord-android
- * Copyright 2015 Cord Project Inc.
- */
+
 public class MathUtil {
 
     public static float toRadians(float degrees) {

@@ -8,12 +8,6 @@ import cordproject.lol.papercraftshared.R;
 import cordproject.lol.papercraftshared.entity.AchievementData;
 import cordproject.lol.papercraftshared.entity.AchievementInfo;
 
-
-/**
- * Created by matthewlim on 11/16/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
 public class AchievementsUtil {
 
     private static HashMap<String, AchievementInfo> achievementsMap = new HashMap();

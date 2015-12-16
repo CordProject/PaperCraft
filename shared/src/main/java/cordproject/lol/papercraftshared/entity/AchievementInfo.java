@@ -1,10 +1,6 @@
 package cordproject.lol.papercraftshared.entity;
 
-/**
- * Created by matthewlim on 11/16/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
+
 public class AchievementInfo {
     public int descriptionResId;
     public int achievementResId;

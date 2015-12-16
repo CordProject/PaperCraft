@@ -31,11 +31,6 @@ import cordproject.lol.papercraft.controller.SystemControllerP;
 import cordproject.lol.papercraftshared.graphics.PaperGen;
 import cordproject.lol.papercraftshared.util.SharedConstants;
 
-/**
- * Created by matthewlim on 11/13/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
 public class MainPhoneView extends FrameLayout{
 
 

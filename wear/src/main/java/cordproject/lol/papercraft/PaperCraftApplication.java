@@ -8,11 +8,6 @@ import cordproject.lol.papercraft.controller.Controller;
 import cordproject.lol.papercraft.controller.GameController;
 import cordproject.lol.papercraft.controller.SystemController;
 
-/**
- * Created by matthewlim on 10/31/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
 public class PaperCraftApplication extends Application {
 
     private static HashMap<Integer, Controller> controllerHashMap = new HashMap<>();

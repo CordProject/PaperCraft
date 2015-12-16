@@ -2,11 +2,7 @@ package cordproject.lol.papercraft.entity;
 
 import android.graphics.Matrix;
 
-/**
- * Created by matthewlim on 11/11/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
+
 public class BulletData {
     public float x, y;
     public float length;

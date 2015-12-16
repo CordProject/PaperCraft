@@ -18,11 +18,6 @@ import android.widget.TextView;
 
 import cordproject.lol.papercraft.R;
 
-/**
- * Created by matthewlim on 11/13/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
 public class ShadowSquareButton extends FrameLayout {
 
     private TextView labelText;

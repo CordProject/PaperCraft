@@ -1,10 +1,5 @@
 package cordproject.lol.papercraft.controller;
 
-/**
- * Created by matthewlim on 10/31/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
 public class SystemController extends Controller{
 
 

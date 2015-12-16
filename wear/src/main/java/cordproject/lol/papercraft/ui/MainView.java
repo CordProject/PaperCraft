@@ -43,12 +43,6 @@ import cordproject.lol.papercraft.util.MathUtil;
 import cordproject.lol.papercraftshared.entity.AchievementData;
 import cordproject.lol.papercraftshared.graphics.PaperGen;
 
-/**
- * Created by matthewlim on 10/9/15.
- * PaperCraft
- * Copyright 2015 Cord Project Inc.
- */
-
 public class MainView extends FrameLayout implements GameView{
 
     // touch variables
