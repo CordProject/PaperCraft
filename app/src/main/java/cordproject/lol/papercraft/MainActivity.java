@@ -18,18 +18,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.wearable.DataApi;
-import com.google.android.gms.wearable.DataEventBuffer;
-import com.google.android.gms.wearable.DataMap;
-import com.google.android.gms.wearable.MessageApi;
-import com.google.android.gms.wearable.MessageEvent;
-import com.google.android.gms.wearable.PutDataMapRequest;
-import com.google.android.gms.wearable.PutDataRequest;
-import com.google.android.gms.wearable.Wearable;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -46,7 +34,7 @@ import cordproject.lol.papercraftshared.util.SharedConstants;
 
 
 
-public class MainActivity extends Activity implements GoogleApiClient.ConnectionCallbacks, DataApi.DataListener, GoogleApiClient.OnConnectionFailedListener, MessageApi.MessageListener {
+public class MainActivity extends Activity {
 
     private static final SimpleDateFormat AMBIENT_DATE_FORMAT =
             new SimpleDateFormat("HH:mm", Locale.US);
@@ -84,7 +72,6 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
             playExplosionSound();
         }
     };
-    private GoogleApiClient mGoogleApiClient;
 
     private GameController.GameControllerListener gameListener = new GameController.GameControllerListener() {
         @Override
@@ -117,16 +104,12 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
 
         @Override
         public void onGameRestarted() {
-            if (mGoogleApiClient.isConnected()) {
-                sendDataToPhone();
-            }
+
         }
 
         @Override
         public void onLevelTransition() {
-            if (mGoogleApiClient.isConnected()) {
-                sendDataToPhone();
-            }
+
         }
     };
 
@@ -195,55 +178,10 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
         mDismissOverlay = (DismissOverlayView) findViewById(R.id.dismiss_overlay);
         mDismissOverlay.setIntroText(R.string.long_press_intro);
         mDismissOverlay.showIntroIfNecessary();
-
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(Wearable.API)
-                .build();
-
-
     }
 
     private Uri getUriForRawFile(int rawResource){
         return Uri.parse("android.resource://" + getPackageName() + "/" + rawResource);
-    }
-
-    private void sendDataToPhone() {
-        PutDataMapRequest putDataMapReq = PutDataMapRequest.create(SharedConstants.DATAPATH_ALL_DATA);
-        if (gameController.getHighScore() > 0 || !currentAchievements.isEmpty()) {
-            putDataMapReq.getDataMap().putInt(SharedConstants.KEY_HIGH_SCORE, gameController.getHighScore());
-
-            ArrayList<DataMap> newAchievements = new ArrayList<>();
-            for (AchievementData data : this.currentAchievements.values()) {
-                DataMap dataMap = new DataMap();
-                boolean achieved = data.getStatus() >= SharedConstants.ACHIEVED;
-                boolean notSentToBackend = data.getStatus() < SharedConstants.SENT_TO_SERVER;
-
-                if ((notSentToBackend && data.type == SharedConstants.TYPE_INCREMENTAL) ||
-                        (notSentToBackend && achieved && data.type == SharedConstants.TYPE_SINGLE)) {
-                    dataMap.putInt(SharedConstants.MAP_KEY_COMBINED_VALUE, data.getCombinedValue());
-                    dataMap.putString(SharedConstants.MAP_KEY_ACHIEVEMENT_ID, getResources().getString(data.achievementResId));
-                    dataMap.putString(SharedConstants.MAP_KEY_ACHIEVEMENT_KEY, data.prefsKey);
-                    newAchievements.add(dataMap);
-                }
-            }
-            putDataMapReq.setUrgent();
-            putDataMapReq.getDataMap().putDataMapArrayList(SharedConstants.MAP_KEY_ACHIEVEMENT_DATA, newAchievements);
-            putDataMapReq.getDataMap().putLong(SharedConstants.MAP_KEY_TIMESTAMP, new Date().getTime());
-            PutDataRequest putDataReq = putDataMapReq.asPutDataRequest();
-            Wearable.DataApi.putDataItem(mGoogleApiClient, putDataReq).setResultCallback(new ResultCallback<DataApi.DataItemResult>() {
-                @Override
-                public void onResult(DataApi.DataItemResult dataItemResult) {
-                    if (dataItemResult.getStatus().isSuccess()) {
-                        Log.d("achieve", "achievements/high score data sent!");
-                    }
-                }
-            });
-            /*Uri.Builder builder = new Uri.Builder();
-            Uri allData = builder.scheme(PutDataRequest.WEAR_URI_SCHEME).path(SharedConstants.DATAPATH_ALL_DATA).build();
-            Wearable.DataApi.deleteDataItems(mGoogleApiClient, allData);*/
-        }
     }
 
     @Override
@@ -263,17 +201,11 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
         for (AchievementData data : currentAchievements.values()) {
             Log.d("achieve", data.toString(getResources()));
         }
-        mGoogleApiClient.connect();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        if (mGoogleApiClient.isConnected()) {
-            mGoogleApiClient.disconnect();
-        }
-        Wearable.MessageApi.removeListener(mGoogleApiClient, this);
-        Wearable.DataApi.removeListener(mGoogleApiClient, this);
     }
 
     @Override
@@ -335,37 +267,5 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
     private void updateDisplay() {
         mContainerView.setBackground(null);
         mClockView.setVisibility(View.GONE);
-    }
-
-
-    @Override
-    public void onConnected(Bundle bundle) {
-        Wearable.DataApi.addListener(mGoogleApiClient, this);
-        Wearable.MessageApi.addListener(mGoogleApiClient, this);
-        sendDataToPhone();
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onDataChanged(DataEventBuffer dataEventBuffer) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-
-    }
-
-    @Override
-    public void onMessageReceived(MessageEvent messageEvent) {
-        String prefsKey = new String(messageEvent.getData());
-        if (!TextUtils.isEmpty(prefsKey) && currentAchievements.containsKey(prefsKey)) {
-            currentAchievements.get(prefsKey).setStatus(SharedConstants.SENT_TO_SERVER);
-        }
-        AchievementsUtil.markAchievementSentToServer(prefsKey);
     }
 }
