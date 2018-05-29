@@ -1,5 +1,6 @@
 package cordproject.lol.papercraft;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.AudioAttributes;
@@ -9,7 +10,6 @@ import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.wearable.activity.WearableActivity;
 import android.support.wearable.view.BoxInsetLayout;
 import android.support.wearable.view.DismissOverlayView;
 import android.support.wearable.view.WatchViewStub;
@@ -46,7 +46,7 @@ import cordproject.lol.papercraftshared.util.SharedConstants;
 
 
 
-public class MainActivity extends WearableActivity implements GoogleApiClient.ConnectionCallbacks, DataApi.DataListener, GoogleApiClient.OnConnectionFailedListener, MessageApi.MessageListener {
+public class MainActivity extends Activity implements GoogleApiClient.ConnectionCallbacks, DataApi.DataListener, GoogleApiClient.OnConnectionFailedListener, MessageApi.MessageListener {
 
     private static final SimpleDateFormat AMBIENT_DATE_FORMAT =
             new SimpleDateFormat("HH:mm", Locale.US);
@@ -176,7 +176,6 @@ public class MainActivity extends WearableActivity implements GoogleApiClient.Co
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setAmbientEnabled();
 
         systemController = (SystemController) PaperCraftApplication.getController(Controller.SYSTEM_CONTROLLER);
         gameController = (GameController) PaperCraftApplication.getController(Controller.GAME_CONTROLLER);
@@ -333,44 +332,9 @@ public class MainActivity extends WearableActivity implements GoogleApiClient.Co
         }
     }
 
-    @Override
-    public void onEnterAmbient(Bundle ambientDetails) {
-        if (gameView != null) {
-            gameView.onActivityPause();
-        }
-        stopPlayingMusic();
-        super.onEnterAmbient(ambientDetails);
-        updateDisplay();
-    }
-
-    @Override
-    public void onUpdateAmbient() {
-        super.onUpdateAmbient();
-        updateDisplay();
-    }
-
-    @Override
-    public void onExitAmbient() {
-        updateDisplay();
-
-        if (gameView != null) {
-            gameView.onActivityResume();
-        }
-
-        super.onExitAmbient();
-        startPlayingMusic();
-    }
-
     private void updateDisplay() {
-        if (isAmbient()) {
-            mContainerView.setBackgroundColor(getResources().getColor(android.R.color.black));
-            mClockView.setVisibility(View.VISIBLE);
-
-            mClockView.setText(AMBIENT_DATE_FORMAT.format(new Date()));
-        } else {
-            mContainerView.setBackground(null);
-            mClockView.setVisibility(View.GONE);
-        }
+        mContainerView.setBackground(null);
+        mClockView.setVisibility(View.GONE);
     }
 
 
