@@ -218,6 +218,10 @@ public class GameplayView extends MainView {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        int width = getMeasuredWidth();
+        setMeasuredDimension(width, width);
+
         screenRadius = MeasureSpec.getSize(widthMeasureSpec)/2;
         maneuverDistance = MeasureSpec.getSize(widthMeasureSpec)/3;
         startX = screenRadius*.3f;
