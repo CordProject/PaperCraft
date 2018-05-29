@@ -33,7 +33,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import cordproject.lol.papercraft.PaperCraftApplication;
-import cordproject.lol.papercraft.R;
+import pro.rudloff.papercraft.R;
 import cordproject.lol.papercraft.controller.Controller;
 import cordproject.lol.papercraft.controller.GameController;
 import cordproject.lol.papercraft.controller.SystemController;

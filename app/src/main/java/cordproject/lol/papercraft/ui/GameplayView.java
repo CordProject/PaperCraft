@@ -14,7 +14,7 @@ import java.util.TimerTask;
 
 import cordproject.lol.papercraft.controller.GameController;
 import cordproject.lol.papercraft.util.MathUtil;
-import cordproject.lol.papercraft.R;
+import pro.rudloff.papercraft.R;
 import cordproject.lol.papercraft.entity.BulletData;
 import cordproject.lol.papercraft.entity.EnemyData;
 
