@@ -32,7 +32,7 @@ import cordproject.lol.papercraftshared.entity.AchievementData;
 import cordproject.lol.papercraftshared.util.AchievementsUtil;
 import cordproject.lol.papercraftshared.util.SharedConstants;
 
-
+import pro.rudloff.papercraft.R;
 
 public class MainActivity extends Activity {
 
