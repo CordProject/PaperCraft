@@ -219,11 +219,8 @@ public class GameplayView extends MainView {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        int width = getMeasuredWidth();
-        setMeasuredDimension(width, width);
-
-        screenRadius = MeasureSpec.getSize(widthMeasureSpec)/2;
-        maneuverDistance = MeasureSpec.getSize(widthMeasureSpec)/3;
+        screenRadius = MeasureSpec.getSize(heightMeasureSpec)/2;
+        maneuverDistance = MeasureSpec.getSize(heightMeasureSpec)/3;
         startX = screenRadius*.3f;
         currentX = -shipLength;
         currentY = getMeasuredHeight()/2;
