@@ -1,1 +1,1 @@
-include ':wear', ':mobile', ':BaseGameUtils', ':shared'
+include ':app', ':shared'

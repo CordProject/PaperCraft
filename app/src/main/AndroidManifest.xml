@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pro.rudloff.papercraft" >
+
+    <application
+        android:name="cordproject.lol.papercraft.PaperCraftApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:largeHeap="true"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.DeviceDefault" >
+
+        <activity
+            android:name="cordproject.lol.papercraft.MainActivity"
+            android:launchMode="singleTask"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
