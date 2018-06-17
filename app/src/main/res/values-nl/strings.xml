@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PaperCraft</string>
+    <string name="long_press_intro">Houdt het scherm ingedrukt met 2 vingers om af te sluiten…</string>
+    <string name="shared_prefs_name">PAPERCRAFT_SHARED_PREFS</string>
+    <string name="credits">Bedankt voor het spelen!\n\nGecreëerd door\n\nMatt\nJeff\nJJ\n\nat Cord Project Inc.</string>
+    <string name="stats_text">Score: %1$s\nSlachtoffers: %2$d\nSterfgevallen: %3$d\nMax. combo: %4$d\nOntsnapte vijanden: %5$d</string>
+
+</resources>
